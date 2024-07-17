@@ -1,63 +1,86 @@
-Class ugly_string{
-    public static void main(){
-        if(a>b){
-            swap(cash,string,a);
-            flip()
-        }
-        else{
-            flip(cash,string,b);
-        }
-    }
+import java.util.*;
+class ugly_string
+{
+  static String str;
+  static int cash, n, a, b;
+  static void swapf ()
+  {
+    char s[] = str.toCharArray ();
+    int i = 0;
+    for (int a = 0; a < s.length; a++)
+      if (s[a] == '1')
+	{
+	  i = a;
+	  break;
+	}
+    int j = s.length - 1;
+    while (j > i)
+      {
+	if (cash < a)
+	  break;
+	if (s[j] == '0')
+	  {
+	    if (s[i] == '0')
+	      i++;
+	    else
+	      {
+		char temp = s[i];
+		s[i] = s[j];
+		s[j] = temp;
+		cash -= a;
+		j--;
+	      }
+	  }
+	else
+	  j--;
+      }
+    str = new String (s);
+  }
+  static void flipf ()
+  {
+    char s[] = str.toCharArray ();
+    int i = 0;
 
-    public static int swap(int cash,int string,int a){
-        char s[] =string.toCharArray ();
-        int i=0;
-        for(int i=0 ;i<s.length ; i++){
-            if(s[i]=='1'){
-                i=a;
-                break;
-            }
-        }
-        int j =s.length -1 ;
-        while(j>i){
-            if(cash<a) break;
-            if(s[j]=='0'){
-                if(s[i]=='0') i++;
-                else{
-                    char temp=s[i];
-                    s[i]=s[j];
-                    s[j]=temp;
-                    cash-=a;
-                    j--;
-                }
+    for (int a = 0; a < s.length; a++)
+      if (s[a] == '1')
+	{
+	  i = a;
+	  break;
+	}
+    while (cash >= b)
+      {
+	if (i == s.length)
+	  break;
+	if (s[i] == '1')
+	  {
+	    s[i] = '0';
+	    i++;
+	    cash -= b;
+	  }
+      }
+    str = new String (s);
+  }
 
-                
+  public static void main (String[]args)
+  {
+    Scanner sc = new Scanner (System.in);
+    n = sc.nextInt ();
+    str = sc.next ();
+    cash = sc.nextInt ();
+    a = sc.nextInt ();
+    b = sc.nextInt ();
 
-            }
-            else{
-                j--;
-            }
-        }
-        str=new String(s);
-        return str;
-    }
-
-    public static int flip(int cash,int string , int b){
-        char[]s =string.toCharArray();
-        for(int a= 0 ;i <s.length ;a++){
-            if(s[a]=='1'){
-                int i=a;
-                break;
-            }
-        }
-
-        while(cash>=b){
-            if(i==s.length) break;
-            if(s[i]=='1'){
-                s[i]=='0';
-                cash-=b;
-                i++
-            }
-        }
-    }
+    if (a < b)
+      {
+	swapf ();
+	flipf ();
+      }
+    else
+      {
+	flipf ();
+	swapf ();
+      }
+    System.out.println (Integer.parseInt (str, 2));
+    sc.close();
+  }
 }

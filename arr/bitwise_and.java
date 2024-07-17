@@ -1,7 +1,7 @@
-import java.util.HashSet;
+// import java.util.HashSet;
 import java.util.Scanner;
 
-import javax.sql.rowset.spi.SyncResolver;
+// import javax.sql.rowset.spi.SyncResolver;
 
 public class bitwise_and {
     public static void main(String[] args) {
@@ -26,5 +26,6 @@ public class bitwise_and {
             ans=Math.max(ans, dp[i]);
         }
         System.out.println(ans);
+        scn.close();
     }
 }

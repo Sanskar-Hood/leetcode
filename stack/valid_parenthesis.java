@@ -1,4 +1,5 @@
-import java.util.*;
+package stack;
+
 import java.util.HashMap;
 import java.util.Stack;
 
